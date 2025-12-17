@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilya Sobko Gaming | Турниры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">⚔️</div>
+                <h1>Ilya Sobko Gaming</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="tournaments.html" class="active">Турниры</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="tournaments-hero">
+            <div class="container">
+                <h2>Наши турниры</h2>
+                <p>Присоединяйтесь к захватывающим соревнованиям по Dota 2</p>
+            </div>
+        </section>
+
+        <section class="tournaments-content">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все турниры</button>
+                    <button class="filter-btn" data-filter="upcoming">Предстоящие</button>
+                    <button class="filter-btn" data-filter="ongoing">Текущие</button>
+                    <button class="filter-btn" data-filter="past">Прошедшие</button>
+                </div>
+
+                <div class="tournaments-full-grid" id="tournamentsGrid">
+                    <!-- Турниры будут загружены динамически с помощью JavaScript -->
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">→</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="rules">
+            <div class="container">
+                <h3>Правила участия</h3>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <h4>Требования к командам</h4>
+                        <ul>
+                            <li>Минимум 5 игроков + 1 запасной</li>
+                            <li>Все игроки должны быть старше 16 лет</li>
+                            <li>Каждый игрок может состоять только в одной команде</li>
+                            <li>Запрещено использовать аккаунты с баном</li>
+                        </ul>
+                    </div>
+                    <div class="rule-item">
+                        <h4>Формат турниров</h4>
+                        <ul>
+                            <li>Групповая стадия: круговая система</li>
+                            <li>Плей-офф: олимпийская система</li>
+                            <li>Матчи до двух побед (BO3)</li>
+                            <li>Финал: до трех побед (BO5)</li>
+                        </ul>
+                    </div>
+                    <div class="rule-item">
+                        <h4>Призовые места</h4>
+                        <ul>
+                            <li>1 место: 50% от призового фонда</li>
+                            <li>2 место: 30% от призового фонда</li>
+                            <li>3 место: 15% от призового фонда</li>
+                            <li>4 место: 5% от призового фонда</li>
+                        </ul>
+                    </div>
+                    <div class="rule-item">
+                        <h4>Регистрация</h4>
+                        <ul>
+                            <li>Регистрация закрывается за 24 часа до турнира</li>
+                            <li>Вступительный взнос: от 500 до 5000 рублей</li>
+                            <li>Оплата осуществляется после подтверждения заявки</li>
+                            <li>Замена игроков возможна до начала турнира</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ilya Sobko Gaming. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">VK</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

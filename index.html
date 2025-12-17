@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilya Sobko Gaming | Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">⚔️</div>
+                <h1>Ilya Sobko Gaming</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="tournaments.html">Турниры</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Эпические битвы Dota 2 начинаются здесь</h2>
+                <p>Профессиональные турниры для команд любого уровня</p>
+                <a href="tournaments.html" class="btn">Ближайшие турниры</a>
+            </div>
+        </section>
+
+        <section class="upcoming-tournaments">
+            <div class="container">
+                <h2>Предстоящие турниры</h2>
+                <div class="tournaments-grid">
+                    <div class="tournament-card">
+                        <div class="tournament-badge">ПРИЗОВОЙ ФОНД 100 000₽</div>
+                        <h3>Winter Championship 2025</h3>
+                        <p class="tournament-date">📅 15-20 января 2025</p>
+                        <p class="tournament-format">Формат: Групповая стадия + Плей-офф</p>
+                        <p class="tournament-teams">Команд: 16 (регистрация открыта)</p>
+                        <a href="#" class="btn small">Зарегистрировать команду</a>
+                    </div>
+                    <div class="tournament-card">
+                        <div class="tournament-badge">ПРИЗОВОЙ ФОНД 50 000₽</div>
+                        <h3>Weekend Cup #12</h3>
+                        <p class="tournament-date">📅 11-12 января 2025</p>
+                        <p class="tournament-format">Формат: Double Elimination</p>
+                        <p class="tournament-teams">Команд: 8 (осталось 2 места)</p>
+                        <a href="#" class="btn small">Зарегистрировать команду</a>
+                    </div>
+                    <div class="tournament-card">
+                        <div class="tournament-badge">ПРИЗОВОЙ ФОНД 200 000₽</div>
+                        <h3>Spring Major 2025</h3>
+                        <p class="tournament-date">📅 15-25 марта 2025</p>
+                        <p class="tournament-format">Формат: Отборочные + Финал</p>
+                        <p class="tournament-teams">Команд: 32 (регистрация откроется 1 февраля)</p>
+                        <a href="#" class="btn small disabled">Отборочные скоро</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stat-item">
+                    <span class="stat-number" id="tournamentsCount">0</span>
+                    <p>Проведено турниров</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="teamsCount">0</span>
+                    <p>Команд участвовало</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="prizeCount">0</span>
+                    <p>₽ разыграно призов</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="viewersCount">0</span>
+                    <p>Макс. зрителей онлайн</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-video">
+            <div class="container">
+                <h2>Финал последнего турнира</h2>
+                <div class="video-placeholder">
+                    <p>Видео финала Winter Cup 2024</p>
+                    <div class="play-button">▶️</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ilya Sobko Gaming. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">VK</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

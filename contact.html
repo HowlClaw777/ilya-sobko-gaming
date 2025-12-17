@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilya Sobko Gaming | Контакты</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">⚔️</div>
+                <h1>Ilya Sobko Gaming</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="tournaments.html">Турниры</a></li>
+                    <li><a href="contact.html" class="active">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <p>Готовы к новым победам? Напишите нам!</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Контактная информация</h3>
+                        <ul>
+                            <li>
+                                <span class="contact-icon">📧</span>
+                                <span>info@ilysobkogaming.ru</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">📱</span>
+                                <span>+7 (999) 876-54-32</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">⏰</span>
+                                <span>Пн-Пт: 10:00-20:00<br>Сб-Вс: 12:00-18:00</span>
+                            </li>
+                        </ul>
+                        
+                        <h3>Социальные сети</h3>
+                        <div class="social-links-large">
+                            <a href="#" class="social-link">
+                                <span>Discord</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <span>Telegram</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <span>VK</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <span>Twitch</span>
+                            </a>
+                        </div>
+                        
+                        <h3>Для спонсоров и партнеров</h3>
+                        <p>Хотите стать нашим партнером или спонсором? Мы предлагаем различные пакеты сотрудничества для бизнеса.</p>
+                        <a href="#" class="btn">Стать партнером</a>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Оставить заявку</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="playerName">Ваш никнейм/Имя</label>
+                                <input type="text" id="playerName" name="playerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="teamName">Название команды</label>
+                                <input type="text" id="teamName" name="teamName">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Тема обращения</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="registration">Регистрация на турнир</option>
+                                    <option value="question">Вопрос по турниру</option>
+                                    <option value="suggestion">Предложение о сотрудничестве</option>
+                                    <option value="technical">Техническая проблема</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Отправить заявку</button>
+                        </form>
+                        <div id="formMessage"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h3>Часто задаваемые вопросы</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Как зарегистрировать команду на турнир?</h4>
+                        <p>Перейдите на страницу турнира, нажмите кнопку "Зарегистрировать команду" и заполните все необходимые поля. После подтверждения заявки вы получите инструкции по оплате вступительного взноса.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Можно ли заменить игрока в команде?</h4>
+                        <p>Да, замена возможна до начала первого матча. Для этого нужно отправить заявку через форму на сайте с указанием никнеймов старого и нового игроков. Замена одного игрока стоит 500 рублей.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Где можно посмотреть расписание матчей?</h4>
+                        <p>Расписание публикуется в Discord-сервере турнира за 24 часа до начала. Также уведомления о матчах отправляются на email капитанам команд за 2 часа до начала матча.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Что делать при технических проблемах во время матча?</h4>
+                        <p>Немедленно сообщите об этом судье через Discord или Telegram. Судья может приостановить матч для решения проблемы. Записывайте доказательства (скриншоты, видео) для ускорения рассмотрения жалобы.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ilya Sobko Gaming. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">VK</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

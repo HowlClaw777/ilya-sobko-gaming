@@ -1,0 +1,1089 @@
+/* Переменные тем */
+:root {
+    --primary-color: #7e57c2;
+    --secondary-color: #5e35b1;
+    --accent-color: #ff5252;
+    --text-color: #e0e0e0;
+    --light-color: #121212;
+    --dark-color: #0a0a0a;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --transition: all 0.3s ease;
+    --border-radius: 10px;
+    --container-width: 1200px;
+    --border-glow: 0 0 10px rgba(126, 87, 194, 0.5);
+    --gradient-primary: linear-gradient(45deg, #7e57c2, #9575cd);
+}
+
+[data-theme="light"] {
+    --primary-color: #673ab7;
+    --secondary-color: #512da8;
+    --text-color: #333;
+    --light-color: #f5f5f5;
+    --dark-color: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-glow: 0 0 8px rgba(103, 58, 183, 0.3);
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(126, 87, 194, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 82, 82, 0.1) 0%, transparent 20%);
+    transition: var(--transition);
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--border-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(126, 87, 194, 0.6);
+}
+
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.btn.disabled {
+    background: #757575;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn.disabled:hover {
+    transform: none;
+}
+
+/* Шапка сайта */
+header {
+    background-color: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+[data-theme="light"] header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 5px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: var(--transition);
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(126, 87, 194, 0.1);
+}
+
+/* Основной контент */
+main {
+    min-height: calc(100vh - 180px);
+}
+
+.hero {
+    background: linear-gradient(rgba(10, 10, 20, 0.85), rgba(20, 10, 30, 0.9)), url('https://via.placeholder.com/1920x800?text=Dota2+Championship') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(126, 87, 194, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 82, 82, 0.15) 0%, transparent 40%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Турниры */
+.upcoming-tournaments h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tournament-card {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="light"] .tournament-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.tournament-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.tournament-badge {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 8px 15px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.tournament-card h3 {
+    padding: 15px;
+    margin: 0;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+}
+
+.tournament-card p {
+    padding: 0 15px 10px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.tournament-date {
+    color: #ff5252;
+    font-weight: 600;
+}
+
+.tournament-format {
+    color: #4caf50;
+    font-weight: 500;
+}
+
+.tournament-teams {
+    color: #2196f3;
+    font-weight: 500;
+}
+
+/* Статистика */
+.stats {
+    background-color: rgba(10, 10, 20, 0.8);
+    padding: 50px 0;
+    margin: 50px 0;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(126, 87, 194, 0.3);
+    border-bottom: 1px solid rgba(126, 87, 194, 0.3);
+}
+
+[data-theme="light"] .stats {
+    background-color: #f0f0f8;
+}
+
+.stats .container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    margin: 15px;
+    min-width: 150px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    display: block;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(126, 87, 194, 0.3);
+}
+
+/* Видео */
+.featured-video {
+    margin: 60px 0;
+}
+
+.video-placeholder {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    border-radius: var(--border-radius);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(126, 87, 194, 0.2) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.video-placeholder p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    border: 2px solid white;
+}
+
+.play-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Страница "О нас" */
+.about-hero {
+    background: linear-gradient(rgba(20, 10, 30, 0.9), rgba(10, 10, 20, 0.9)), url('https://via.placeholder.com/1920x600?text=Наша+Команда') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.about-text {
+    align-self: center;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.about-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-photo {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(45deg, #5e35b1, #7e57c2);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/400x400?text=Team+Photo') center/cover;
+    opacity: 0.3;
+}
+
+.values {
+    margin-top: 60px;
+}
+
+.values h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.value-item {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="light"] .value-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(126, 87, 194, 0.5);
+}
+
+.value-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+}
+
+.partners {
+    margin: 60px 0;
+    padding: 40px 0;
+    background-color: rgba(15, 10, 25, 0.6);
+    border-top: 1px solid rgba(126, 87, 194, 0.4);
+    border-bottom: 1px solid rgba(126, 87, 194, 0.4);
+}
+
+.partners h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.partner-card {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.partner-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ff5252;
+}
+
+.partner-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Турниры */
+.tournaments-hero {
+    background: linear-gradient(rgba(10, 5, 20, 0.9), rgba(20, 10, 30, 0.9)), url('https://via.placeholder.com/1920x600?text=Dota2+Tournaments') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tournaments-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.tournaments-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: none;
+    background-color: rgba(30, 30, 40, 0.7);
+    color: var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid rgba(126, 87, 194, 0.3);
+}
+
+[data-theme="light"] .filter-btn {
+    background-color: #e3e3e3;
+    color: #333;
+    border-color: #ccc;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.tournaments-full-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tournament-full-card {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.tournament-full-card.status-upcoming {
+    border-left: 5px solid #4caf50;
+}
+
+.tournament-full-card.status-ongoing {
+    border-left: 5px solid #ff9800;
+}
+
+.tournament-full-card.status-past {
+    border-left: 5px solid #9e9e9e;
+}
+
+.tournament-full-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tournament-header {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(126, 87, 194, 0.3);
+}
+
+.tournament-header h3 {
+    color: var(--primary-color);
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+}
+
+.tournament-badge-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.status-upcoming .tournament-badge-status {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.status-ongoing .tournament-badge-status {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
+.status-past .tournament-badge-status {
+    background-color: rgba(158, 158, 158, 0.2);
+    color: #9e9e9e;
+    border: 1px solid #9e9e9e;
+}
+
+.tournament-body {
+    padding: 15px;
+}
+
+.tournament-body p {
+    margin-bottom: 10px;
+}
+
+.tournament-footer {
+    padding: 15px;
+    border-top: 1px solid rgba(126, 87, 194, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tournament-prize {
+    font-weight: bold;
+    color: #ff5252;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.rules {
+    margin: 60px 0;
+    background-color: rgba(15, 10, 25, 0.6);
+    padding: 40px 0;
+    border-radius: var(--border-radius);
+}
+
+.rules h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.rule-item {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+}
+
+.rule-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+}
+
+.rule-item ul {
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+.rule-item li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.rule-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ff5252;
+    font-size: 1.2em;
+}
+
+/* Контакты */
+.contact-hero {
+    background: linear-gradient(rgba(25, 10, 40, 0.9), rgba(15, 5, 30, 0.9)), url('https://via.placeholder.com/1920x600?text=Свяжитесь+с+нами') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.contact-info ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.contact-info li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    min-width: 30px;
+    color: var(--primary-color);
+}
+
+.social-links-large {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.social-link:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(126, 87, 194, 0.5);
+}
+
+.contact-form {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(126, 87, 194, 0.3);
+    border-radius: var(--border-radius);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: rgba(20, 20, 30, 0.7);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.3);
+}
+
+.faq {
+    margin: 60px 0;
+}
+
+.faq h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.faq-item {
+    background: rgba(30, 30, 40, 0.7);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid rgba(126, 87, 194, 0.3);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.faq-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Подвал сайта */
+footer {
+    background-color: rgba(5, 5, 10, 0.95);
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--primary-color);
+}
+
+[data-theme="light"] footer {
+    background-color: #673ab7;
+    color: white;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.social-links a:hover {
+    color: #ff5252;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 992px) {
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .stats .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    
+    header .container {
+        flex-wrap: wrap;
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .video-placeholder {
+        height: 300px;
+    }
+    
+    .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 70px 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+}
